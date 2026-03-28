@@ -1,0 +1,55 @@
+/* Retro accents — used sparingly for personality */
+
+.retro-border {
+	border: 2px solid var(--color-border);
+	border-top-color: #ffffff;
+	border-left-color: #ffffff;
+	border-bottom-color: #a0a0a0;
+	border-right-color: #a0a0a0;
+}
+
+.retro-inset {
+	border: 2px solid var(--color-border);
+	border-top-color: #a0a0a0;
+	border-left-color: #a0a0a0;
+	border-bottom-color: #ffffff;
+	border-right-color: #ffffff;
+}
+
+.retro-title-bar {
+	background: var(--color-navy);
+	color: white;
+	font-family: var(--font-mono);
+	font-size: 13px;
+	font-weight: 700;
+	padding: 4px 8px;
+	letter-spacing: 0.5px;
+}
+
+.retro-button {
+	font-family: var(--font-mono);
+	font-size: 13px;
+	padding: 6px 16px;
+	background: #c0c0c0;
+	border-top: 2px solid #ffffff;
+	border-left: 2px solid #ffffff;
+	border-bottom: 2px solid #000000;
+	border-right: 2px solid #000000;
+	cursor: pointer;
+	color: var(--color-text);
+	text-decoration: none;
+	display: inline-block;
+	transition: none;
+}
+
+.retro-button:hover {
+	color: var(--color-text);
+}
+
+.retro-button:active {
+	border-top-color: #000000;
+	border-left-color: #000000;
+	border-bottom-color: #ffffff;
+	border-right-color: #ffffff;
+	padding: 7px 15px 5px 17px;
+}
