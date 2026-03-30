@@ -37,14 +37,14 @@
 					<p class="project-body">{project.longDescription}</p>
 				{/if}
 
-				<a
-					href={project.url}
-					target="_blank"
-					rel="noopener noreferrer"
-					class="project-visit"
-				>
-					visit {project.name} →
-				</a>
+			<a
+				href={project.url}
+				target={project.internal ? undefined : '_blank'}
+				rel={project.internal ? undefined : 'noopener noreferrer'}
+				class="project-visit"
+			>
+				{project.internal ? 'open' : 'visit'} {project.name} →
+			</a>
 			</div>
 		{/each}
 	</div>

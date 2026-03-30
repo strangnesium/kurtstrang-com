@@ -7,6 +7,7 @@ export const profile = {
 	status: {
 		role: 'Conversion Optimisation',
 		company: 'Moss',
+		companyUrl: 'https://getmoss.com',
 		since: '2025',
 		location: 'Tallinn, Estonia',
 		blurb: `Building tools and products I wish existed. Side projects include RedditMentions and exploring new ideas.`

@@ -22,29 +22,37 @@
 	<Nav />
 
 	<header class="hero">
-		<div class="hero-identity">
+		<div class="hero-text">
 			<h1 class="hero-name">{profile.name}</h1>
 			<p class="tagline">{profile.title}</p>
-			<div class="hero-meta">
-				<span class="meta-item">
-					<span class="meta-label">currently</span>
-					<span class="meta-value">{profile.status.role} at {profile.status.company}</span>
-				</span>
-				<span class="meta-sep">·</span>
-				<span class="meta-item">
-					<span class="meta-label">since</span>
-					<span class="meta-value">{profile.status.since}</span>
-				</span>
-				<span class="meta-sep">·</span>
-				<span class="meta-item">
-					<span class="meta-label">based in</span>
-					<span class="meta-value">{profile.status.location}</span>
-				</span>
-				<span class="meta-sep">·</span>
-				<span class="meta-item">
-					<span class="meta-label">from</span>
-					<span class="meta-value">{profile.origin}</span>
-				</span>
+			<div class="hero-pills">
+				<div class="hero-fact">
+					<span class="fact-label">Currently:</span>
+					<a
+						href={profile.status.companyUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="pill pill-link"
+					>
+						At {profile.status.company}
+					</a>
+				</div>
+				<div class="hero-fact">
+					<span class="fact-label">Doing:</span>
+					<span class="pill">{profile.status.role}</span>
+				</div>
+				<div class="hero-fact">
+					<span class="fact-label">Since:</span>
+					<span class="pill">{profile.status.since}</span>
+				</div>
+				<div class="hero-fact">
+					<span class="fact-label">Based in:</span>
+					<span class="pill">{profile.status.location}</span>
+				</div>
+				<div class="hero-fact">
+					<span class="fact-label">From:</span>
+					<span class="pill">{profile.origin}</span>
+				</div>
 			</div>
 		</div>
 
@@ -106,14 +114,14 @@
 		{#each otherProjects as project}
 			<a
 				href={project.url}
-				target="_blank"
-				rel="noopener noreferrer"
+				target={project.internal ? undefined : '_blank'}
+				rel={project.internal ? undefined : 'noopener noreferrer'}
 				class="project-card"
 			>
 				<div class="project-card-inner">
 					<span class="project-name">{project.name}</span>
 					<span class="project-desc">{project.description}</span>
-					<span class="project-link">visit →</span>
+					<span class="project-link">{project.internal ? 'open' : 'visit'} →</span>
 				</div>
 			</a>
 		{/each}
@@ -132,21 +140,24 @@
 
 	/* Hero */
 	.hero {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--spacing-lg);
+		align-items: center;
 		margin-bottom: var(--spacing-xl);
 	}
 
-	.hero-identity {
-		padding: var(--spacing-lg) 0 var(--spacing-lg);
-		border-left: 3px solid var(--pine-teal);
-		padding-left: var(--spacing-md);
-		margin-bottom: var(--spacing-lg);
+	.hero-text {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-sm);
+		min-width: 0;
 	}
 
 	.hero-name {
 		font-size: 40px;
 		font-weight: 700;
 		line-height: 1.05;
-		margin-bottom: var(--spacing-xs);
 		letter-spacing: -1px;
 		color: var(--pine-teal);
 	}
@@ -155,49 +166,63 @@
 		font-size: 20px;
 		color: var(--deep-sky-blue);
 		font-weight: 600;
-		margin-bottom: var(--spacing-md);
 		letter-spacing: -0.3px;
+		margin-bottom: var(--spacing-xs);
 	}
 
-	.hero-meta {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: baseline;
-		gap: 6px var(--spacing-sm);
-		font-size: 13px;
+	.hero-pills {
+		display: grid;
+		grid-template-columns: max-content minmax(0, 1fr);
+		row-gap: var(--spacing-xs);
+		column-gap: 8px;
+		align-items: center;
+		justify-items: start;
 	}
 
-	.meta-item {
-		display: inline-flex;
-		align-items: baseline;
-		gap: 5px;
+	.hero-fact {
+		display: contents;
 	}
 
-	.meta-label {
-		font-size: 10px;
-		text-transform: uppercase;
-		letter-spacing: 1px;
-		color: var(--mint-leaf);
-		font-weight: 700;
+	.fact-label {
+		justify-self: start;
 		flex-shrink: 0;
-	}
-
-	.meta-value {
-		color: var(--color-text);
-		font-size: 13px;
-	}
-
-	.meta-sep {
-		color: var(--color-border-strong);
 		font-size: 12px;
-		line-height: 1;
+		font-weight: 600;
+		color: var(--pine-teal);
+		white-space: nowrap;
+	}
+
+	.pill {
+		box-sizing: border-box;
+		display: inline-block;
+		width: fit-content;
+		max-width: 100%;
+		padding: 4px 12px;
+		background: var(--color-navy-light);
+		border: 1px solid var(--color-border);
+		border-radius: 100px;
+		font-size: 12px;
+		line-height: 1.5;
+		color: var(--color-text);
+		white-space: nowrap;
+		overflow-wrap: normal;
+	}
+
+	.pill-link {
+		text-decoration: none;
+		color: var(--color-text);
+		transition: border-color 0.15s, background-color 0.15s, color 0.15s;
+	}
+
+	.pill-link:hover {
+		border-color: var(--pine-teal);
+		background: rgba(20, 69, 61, 0.06);
+		color: var(--pine-teal);
 	}
 
 	.hero-photo {
 		margin: 0;
 		padding: 0;
-		width: 60vw;
-		max-width: 100%;
 	}
 
 	.hero-photo-img {
@@ -377,6 +402,19 @@
 	}
 
 	@media (max-width: 600px) {
+		.hero {
+			grid-template-columns: 1fr;
+			gap: var(--spacing-md);
+		}
+
+		.hero-text {
+			order: 1;
+		}
+
+		.hero-photo {
+			order: 2;
+		}
+
 		.hero-name {
 			font-size: 30px;
 		}
@@ -385,13 +423,13 @@
 			font-size: 17px;
 		}
 
-		.hero-meta {
-			flex-direction: column;
-			gap: var(--spacing-xs);
+		.fact-label {
+			font-size: 11px;
 		}
 
-		.meta-sep {
-			display: none;
+		.pill {
+			font-size: 11px;
+			padding: 3px 10px;
 		}
 
 		.project-card-inner {

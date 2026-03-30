@@ -5,6 +5,7 @@ export interface Project {
 	longDescription?: string;
 	status?: string;
 	featured?: boolean;
+	internal?: boolean;
 }
 
 export const projects: Project[] = [
@@ -29,5 +30,13 @@ export const projects: Project[] = [
 		description: 'Bite-sized learning in 8-minute reads.',
 		longDescription: `8mines curates and creates focused learning content designed to be read in a single sitting. Each piece is edited down to exactly what you need — no filler, no fluff, just the core ideas in 8 minutes or less.`,
 		status: 'Active'
+	},
+	{
+		name: 'Random Walk Simulator',
+		url: '/projects/random-walk-simulator',
+		description: 'Interactive coin-flip random walk with optional drift.',
+		longDescription: `Visualize how noisy metrics can wander just by chance. Each step is a coin flip (+1 or −1), optionally biased with a small drift. A useful mental model for understanding randomness in data.`,
+		status: 'Interactive',
+		internal: true
 	}
 ];
