@@ -3,11 +3,13 @@
 </script>
 
 <nav class="nav">
-	<a href="/" class="nav-path">C:\Kurt\{path}</a>
+	<span class="nav-path">
+		<a href="/" class="nav-home">C:\Kurt\</a>{#if path}<span class="nav-current">{path}</span>{/if}
+	</span>
 	<div class="nav-links">
 		<a href="/projects">projects</a>
-		<a href="/about">about</a>
-		<a href="/blog">blog</a>
+		<a href="/writings">my writings</a>
+		<a href="/contact">contact</a>
 	</div>
 </nav>
 
@@ -23,13 +25,22 @@
 
 	.nav-path {
 		font-size: 13px;
-		color: var(--color-text-muted);
 		letter-spacing: 0.5px;
-		text-decoration: none;
 	}
 
-	.nav-path:hover {
-		color: var(--color-teal);
+	.nav-home {
+		color: var(--color-text-muted);
+		text-decoration: none;
+		transition: color 0.15s;
+	}
+
+	.nav-home:hover {
+		color: var(--mint-leaf);
+	}
+
+	.nav-current {
+		color: var(--color-text-muted);
+		opacity: 0.6;
 	}
 
 	.nav-links {
@@ -46,7 +57,7 @@
 	}
 
 	.nav-links a:hover {
-		color: var(--color-teal);
-		border-bottom-color: var(--color-teal);
+		color: var(--deep-sky-blue);
+		border-bottom-color: var(--deep-sky-blue);
 	}
 </style>

@@ -6,15 +6,15 @@
 </script>
 
 <svelte:head>
-	<title>Blog — Kurt Strang</title>
+	<title>My Writings — Kurt Strang</title>
 	<meta name="description" content="Writings by Kurt Strang on building, making, and the internet." />
 </svelte:head>
 
 <div class="page">
-	<Nav path="Blog\" />
+	<Nav path="Writings\" />
 
 	<header class="page-header">
-		<h1>Blog</h1>
+		<h1>My Writings</h1>
 		<p>Occasional writing on building things, side projects, and the internet.</p>
 	</header>
 
@@ -23,7 +23,7 @@
 	{:else}
 		<div class="post-list">
 			{#each data.posts as post}
-				<a href="/blog/{post.slug}" class="post-item">
+				<a href="/writings/{post.slug}" class="post-item">
 					<div class="post-meta">
 						<time datetime={post.date}>
 							{new Date(post.date).toLocaleDateString('en-US', {

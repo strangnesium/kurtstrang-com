@@ -12,9 +12,9 @@
 
 <svelte:head>
 	<title>Kurt Strang</title>
-	<meta name="description" content="Kurt Strang — builder, maker, and internet tinkerer." />
+	<meta name="description" content="Kurt Strang — I build web things." />
 	<meta property="og:title" content="Kurt Strang" />
-	<meta property="og:description" content="Builder, maker, and internet tinkerer." />
+	<meta property="og:description" content="I build web things." />
 	<meta property="og:type" content="website" />
 </svelte:head>
 
@@ -22,32 +22,51 @@
 	<Nav />
 
 	<header class="hero">
-		<h1>{profile.name}</h1>
-		<p class="tagline">{profile.title}</p>
+		<div class="hero-identity">
+			<h1 class="hero-name">{profile.name}</h1>
+			<p class="tagline">{profile.title}</p>
+			<div class="hero-meta">
+				<span class="meta-item">
+					<span class="meta-label">currently</span>
+					<span class="meta-value">{profile.status.role} at {profile.status.company}</span>
+				</span>
+				<span class="meta-sep">·</span>
+				<span class="meta-item">
+					<span class="meta-label">since</span>
+					<span class="meta-value">{profile.status.since}</span>
+				</span>
+				<span class="meta-sep">·</span>
+				<span class="meta-item">
+					<span class="meta-label">based in</span>
+					<span class="meta-value">{profile.status.location}</span>
+				</span>
+				<span class="meta-sep">·</span>
+				<span class="meta-item">
+					<span class="meta-label">from</span>
+					<span class="meta-value">{profile.origin}</span>
+				</span>
+			</div>
+		</div>
+
+		<figure class="hero-photo">
+			<img
+				src="/kurt-photo-full-screen.png"
+				alt="Kurt Strang"
+				class="hero-photo-img"
+			/>
+		</figure>
 	</header>
 
-	<section class="status-card">
-		<div class="status-row">
-			<span class="status-label">currently</span>
-			<span class="status-value">{profile.status.role} at {profile.status.company}</span>
-		</div>
-		<div class="status-row">
-			<span class="status-label">since</span>
-			<span class="status-value">{profile.status.since}</span>
-		</div>
-		<div class="status-row">
-			<span class="status-label">based in</span>
-			<span class="status-value">{profile.status.location}</span>
-		</div>
-		<p class="status-blurb">{profile.status.blurb}</p>
+	<section class="intro-blurb">
+		<p>{profile.bio}</p>
 	</section>
 
 	{#if data.latestPost}
 		<section class="section">
 			<h2 class="section-heading">
-				<span class="heading-icon">~/</span>latest writing
+				<span class="heading-icon">~/</span>my writings
 			</h2>
-			<a href="/blog/{data.latestPost.slug}" class="latest-post">
+			<a href="/writings/{data.latestPost.slug}" class="latest-post">
 				<span class="retro-title-bar">new post</span>
 				<div class="latest-post-body">
 					<div>
@@ -59,7 +78,7 @@
 					<span class="latest-post-arrow">read →</span>
 				</div>
 			</a>
-			<a href="/blog" class="section-link">all posts →</a>
+			<a href="/writings" class="section-link">all writings →</a>
 		</section>
 	{/if}
 
@@ -116,59 +135,90 @@
 		margin-bottom: var(--spacing-xl);
 	}
 
-	.hero h1 {
-		font-size: 36px;
+	.hero-identity {
+		padding: var(--spacing-lg) 0 var(--spacing-lg);
+		border-left: 3px solid var(--pine-teal);
+		padding-left: var(--spacing-md);
+		margin-bottom: var(--spacing-lg);
+	}
+
+	.hero-name {
+		font-size: 40px;
 		font-weight: 700;
-		line-height: 1.1;
-		margin-bottom: var(--spacing-sm);
-		letter-spacing: -0.5px;
+		line-height: 1.05;
+		margin-bottom: var(--spacing-xs);
+		letter-spacing: -1px;
+		color: var(--pine-teal);
 	}
 
 	.tagline {
-		font-size: 18px;
-		color: var(--color-teal);
-		font-weight: 500;
+		font-size: 20px;
+		color: var(--deep-sky-blue);
+		font-weight: 600;
+		margin-bottom: var(--spacing-md);
+		letter-spacing: -0.3px;
 	}
 
-	/* Status card */
-	.status-card {
-		margin-bottom: var(--spacing-2xl);
-		padding: var(--spacing-lg);
-		background: var(--color-surface);
-		border: 1px solid var(--color-border);
+	.hero-meta {
 		display: flex;
-		flex-direction: column;
-		gap: var(--spacing-sm);
-	}
-
-	.status-row {
-		display: flex;
+		flex-wrap: wrap;
 		align-items: baseline;
-		gap: var(--spacing-md);
+		gap: 6px var(--spacing-sm);
+		font-size: 13px;
 	}
 
-	.status-label {
-		font-size: 12px;
+	.meta-item {
+		display: inline-flex;
+		align-items: baseline;
+		gap: 5px;
+	}
+
+	.meta-label {
+		font-size: 10px;
 		text-transform: uppercase;
 		letter-spacing: 1px;
-		color: var(--color-text-muted);
-		min-width: 80px;
+		color: var(--mint-leaf);
+		font-weight: 700;
 		flex-shrink: 0;
-		font-weight: 600;
 	}
 
-	.status-value {
-		font-size: 15px;
+	.meta-value {
 		color: var(--color-text);
+		font-size: 13px;
 	}
 
-	.status-blurb {
-		font-size: 14px;
-		color: var(--color-text-muted);
-		line-height: 1.6;
-		margin-top: var(--spacing-sm);
-		padding-top: var(--spacing-sm);
+	.meta-sep {
+		color: var(--color-border-strong);
+		font-size: 12px;
+		line-height: 1;
+	}
+
+	.hero-photo {
+		margin: 0;
+		padding: 0;
+		width: 60vw;
+		max-width: 100%;
+	}
+
+	.hero-photo-img {
+		display: block;
+		width: 100%;
+		height: auto;
+		border: 1px solid var(--color-border);
+	}
+
+	/* Intro blurb */
+	.intro-blurb {
+		margin-bottom: var(--spacing-2xl);
+		padding: var(--spacing-lg) 0;
 		border-top: 1px solid var(--color-border);
+	}
+
+	.intro-blurb p {
+		font-size: 15px;
+		line-height: 1.75;
+		color: var(--color-text-muted);
+		max-width: 560px;
 	}
 
 	/* Sections */
@@ -177,10 +227,10 @@
 	}
 
 	.section-heading {
-		font-size: 14px;
+		font-size: 13px;
 		font-weight: 700;
 		text-transform: uppercase;
-		letter-spacing: 1.5px;
+		letter-spacing: 2px;
 		color: var(--color-text-muted);
 		margin-bottom: var(--spacing-lg);
 		display: flex;
@@ -189,20 +239,22 @@
 	}
 
 	.heading-icon {
-		color: var(--color-teal);
+		color: var(--deep-sky-blue);
 	}
 
 	.section-link {
 		display: inline-block;
 		margin-top: var(--spacing-md);
 		font-size: 14px;
-		color: var(--color-teal);
+		color: var(--pine-teal);
 		text-decoration: none;
 		border-bottom: 1px solid transparent;
+		transition: color 0.15s, border-color 0.15s;
 	}
 
 	.section-link:hover {
-		border-bottom-color: var(--color-teal);
+		color: var(--mint-leaf);
+		border-bottom-color: var(--mint-leaf);
 	}
 
 	/* Latest post */
@@ -217,8 +269,8 @@
 	}
 
 	.latest-post:hover {
-		border-color: var(--color-navy);
-		box-shadow: 0 2px 8px rgba(0, 0, 128, 0.08);
+		border-color: var(--pine-teal);
+		box-shadow: 0 2px 10px rgba(20, 69, 61, 0.1);
 		color: var(--color-text);
 	}
 
@@ -252,7 +304,7 @@
 
 	.latest-post-arrow {
 		font-size: 13px;
-		color: var(--color-navy);
+		color: var(--pine-teal);
 		white-space: nowrap;
 		flex-shrink: 0;
 	}
@@ -269,13 +321,13 @@
 	}
 
 	.project-card:hover {
-		border-color: var(--color-teal);
-		box-shadow: 0 2px 8px rgba(0, 128, 128, 0.08);
+		border-color: var(--deep-sky-blue);
+		box-shadow: 0 2px 10px rgba(72, 190, 255, 0.12);
 		color: var(--color-text);
 	}
 
 	.project-card.featured {
-		border-left: 3px solid var(--color-teal);
+		border-left: 3px solid var(--pine-teal);
 	}
 
 	.project-card-inner {
@@ -299,10 +351,10 @@
 		font-size: 10px;
 		text-transform: uppercase;
 		letter-spacing: 1px;
-		color: var(--color-teal);
-		background: var(--color-teal-light);
+		color: var(--pine-teal);
+		background: rgba(20, 69, 61, 0.08);
 		padding: 1px 6px;
-		font-weight: 600;
+		font-weight: 700;
 	}
 
 	.project-desc {
@@ -314,7 +366,7 @@
 
 	.project-link {
 		font-size: 13px;
-		color: var(--color-teal);
+		color: var(--mint-leaf);
 		white-space: nowrap;
 		opacity: 0;
 		transition: opacity 0.15s;
@@ -325,13 +377,21 @@
 	}
 
 	@media (max-width: 600px) {
-		.hero h1 {
-			font-size: 28px;
+		.hero-name {
+			font-size: 30px;
 		}
 
-		.status-row {
+		.tagline {
+			font-size: 17px;
+		}
+
+		.hero-meta {
 			flex-direction: column;
-			gap: 0;
+			gap: var(--spacing-xs);
+		}
+
+		.meta-sep {
+			display: none;
 		}
 
 		.project-card-inner {

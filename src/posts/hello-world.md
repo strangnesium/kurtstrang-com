@@ -9,7 +9,7 @@ Welcome to my corner of the internet. I'm Kurt, and this is where I'll occasiona
 
 ## Why a blog?
 
-I've been building side projects for a while now — things like [redditmentions.com](https://redditmentions.com), [quiki.eu](https://quiki.eu), and [8mins.com](https://8mins.com). Each one teaches me something, and I figured it's worth writing some of it down.
+I've been building side projects for a while now — things like [redditmentions.com](https://redditmentions.com), [quiki.eu](https://quiki.eu), and [8mines.com](https://8mines.com). Each one teaches me something, and I figured it's worth writing some of it down.
 
 ## What to expect
 

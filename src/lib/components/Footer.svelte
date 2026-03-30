@@ -7,9 +7,9 @@
 	<span class="footer-dot">·</span>
 	<a href="/projects">projects</a>
 	<span class="footer-dot">·</span>
-	<a href="/about">about</a>
+	<a href="/writings">my writings</a>
 	<span class="footer-dot">·</span>
-	<a href="/blog">blog</a>
+	<a href="/contact">contact</a>
 	<span class="footer-dot">·</span>
 	<a href="https://redditmentions.com" target="_blank" rel="noopener noreferrer">redditmentions</a>
 </footer>
@@ -32,7 +32,7 @@
 	}
 
 	.footer a:hover {
-		color: var(--color-teal);
+		color: var(--mint-leaf);
 	}
 
 	.footer-dot {

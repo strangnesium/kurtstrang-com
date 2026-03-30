@@ -14,7 +14,7 @@
 </svelte:head>
 
 <div class="page">
-	<Nav path="Blog\" />
+	<Nav path="Writings\" />
 
 	<article>
 		<header class="post-header">
@@ -37,7 +37,7 @@
 	</article>
 
 	<div class="post-footer-nav">
-		<a href="/blog" class="back-link">← all posts</a>
+		<a href="/writings" class="back-link">← all writings</a>
 	</div>
 
 	<Footer />
@@ -50,7 +50,6 @@
 		padding: var(--spacing-lg) var(--spacing-md) var(--spacing-xl);
 	}
 
-	/* Post header with retro title bar accent */
 	.post-header {
 		margin-bottom: var(--spacing-xl);
 		border: 1px solid var(--color-border);
@@ -74,7 +73,6 @@
 		color: var(--color-text-muted);
 	}
 
-	/* Prose */
 	.prose {
 		font-size: 15px;
 		line-height: 1.8;
@@ -161,7 +159,6 @@
 		margin: var(--spacing-xl) 0;
 	}
 
-	/* Footer nav */
 	.post-footer-nav {
 		margin-top: var(--spacing-xl);
 		margin-bottom: var(--spacing-2xl);

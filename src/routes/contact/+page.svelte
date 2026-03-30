@@ -5,32 +5,31 @@
 </script>
 
 <svelte:head>
-	<title>About — Kurt Strang</title>
-	<meta name="description" content="About Kurt Strang — {profile.title.toLowerCase()}." />
-	<meta property="og:title" content="About Kurt Strang" />
-	<meta property="og:description" content={profile.bio} />
-	<meta property="og:type" content="profile" />
+	<title>Contact — Kurt Strang</title>
+	<meta name="description" content="Get in touch with Kurt Strang." />
+	<meta property="og:title" content="Contact Kurt Strang" />
+	<meta property="og:description" content="Get in touch with Kurt Strang." />
+	<meta property="og:type" content="website" />
 </svelte:head>
 
 <div class="page">
-	<Nav path="About\" />
+	<Nav path="Contact\" />
 
-	<header class="about-header">
-		<div class="photo-container">
-			<img src="/images/kurt.png" alt="Kurt Strang" />
-		</div>
-		<div class="about-intro">
-			<h1>{profile.name}</h1>
-			<p class="tagline">{profile.title}</p>
+	<header class="page-header">
+		<div class="page-header-intro">
+			<img
+				class="contact-photo"
+				src="/kurt-profile-picture.png"
+				alt="Kurt Strang"
+				width="526"
+				height="620"
+			/>
+			<div class="page-header-copy">
+				<h1>Contact</h1>
+				<p>{profile.workWithMe}</p>
+			</div>
 		</div>
 	</header>
-
-	<section class="section">
-		<div class="prose-about">
-			<p>{profile.bio}</p>
-			<p>{profile.workWithMe}</p>
-		</div>
-	</section>
 
 	<section class="section">
 		<h2 class="section-heading">
@@ -39,7 +38,7 @@
 		<div class="contact-grid">
 			<a href={profile.links.linkedin} target="_blank" rel="noopener noreferrer" class="contact-card">
 				<span class="contact-label">LinkedIn</span>
-				<span class="contact-value">kurtstrang</span>
+				<span class="contact-value">kurt-strang</span>
 				<span class="contact-arrow">↗</span>
 			</a>
 			<a href="mailto:{profile.links.email}" class="contact-card">
@@ -60,42 +59,44 @@
 		padding: var(--spacing-lg) var(--spacing-md) var(--spacing-xl);
 	}
 
-	/* Header with photo */
-	.about-header {
-		display: flex;
-		align-items: center;
-		gap: var(--spacing-lg);
+	.page-header {
 		margin-bottom: var(--spacing-2xl);
 	}
 
-	.photo-container {
-		width: 96px;
-		height: 96px;
-		border: 2px solid var(--color-border);
+	.page-header-intro {
+		display: flex;
+		align-items: flex-start;
+		gap: var(--spacing-lg);
+	}
+
+	.contact-photo {
+		width: 200px;
+		max-width: 35%;
+		height: auto;
 		flex-shrink: 0;
-		overflow: hidden;
-	}
-
-	.photo-container img {
-		width: 100%;
-		height: 100%;
+		border: 1px solid var(--color-border);
 		object-fit: cover;
+		aspect-ratio: 526 / 620;
 	}
 
-	.about-intro h1 {
+	.page-header-copy {
+		min-width: 0;
+		flex: 1;
+	}
+
+	.page-header h1 {
 		font-size: 28px;
 		font-weight: 700;
-		line-height: 1.1;
-		margin-bottom: var(--spacing-xs);
+		margin-bottom: var(--spacing-sm);
 	}
 
-	.tagline {
-		font-size: 16px;
-		color: var(--color-teal);
-		font-weight: 500;
+	.page-header p {
+		font-size: 15px;
+		color: var(--color-text-muted);
+		line-height: 1.8;
+		max-width: 520px;
 	}
 
-	/* Sections */
 	.section {
 		margin-bottom: var(--spacing-2xl);
 	}
@@ -116,20 +117,6 @@
 		color: var(--color-teal);
 	}
 
-	/* Bio prose */
-	.prose-about {
-		display: flex;
-		flex-direction: column;
-		gap: var(--spacing-md);
-		max-width: 580px;
-		line-height: 1.8;
-	}
-
-	.prose-about p {
-		color: var(--color-text);
-	}
-
-	/* Contact cards */
 	.contact-grid {
 		display: flex;
 		flex-direction: column;
@@ -150,7 +137,7 @@
 
 	.contact-card:hover {
 		border-color: var(--color-teal);
-		box-shadow: 0 2px 8px rgba(0, 128, 128, 0.08);
+		box-shadow: 0 2px 8px rgba(67, 197, 158, 0.12);
 		color: var(--color-text);
 	}
 
@@ -178,15 +165,15 @@
 	}
 
 	@media (max-width: 600px) {
-		.about-header {
+		.page-header-intro {
 			flex-direction: column;
-			align-items: flex-start;
-			gap: var(--spacing-md);
+			align-items: center;
+			text-align: center;
 		}
 
-		.photo-container {
-			width: 72px;
-			height: 72px;
+		.contact-photo {
+			max-width: 200px;
+			width: 200px;
 		}
 
 		.contact-arrow {

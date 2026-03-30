@@ -24,10 +24,10 @@ export const projects: Project[] = [
 		status: 'Active'
 	},
 	{
-		name: '8mins.com',
-		url: 'https://8mins.com',
+		name: '8mines.com',
+		url: 'https://8mines.com',
 		description: 'Bite-sized learning in 8-minute reads.',
-		longDescription: `8mins curates and creates focused learning content designed to be read in a single sitting. Each piece is edited down to exactly what you need — no filler, no fluff, just the core ideas in 8 minutes or less.`,
+		longDescription: `8mines curates and creates focused learning content designed to be read in a single sitting. Each piece is edited down to exactly what you need — no filler, no fluff, just the core ideas in 8 minutes or less.`,
 		status: 'Active'
 	}
 ];

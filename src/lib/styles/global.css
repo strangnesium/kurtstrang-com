@@ -1,16 +1,24 @@
 :root {
+	--deep-sky-blue: #48beff;
+	--cyan-glow: #3dfaff;
+	--mint-leaf: #43c59e;
+	--pine-blue: #3d7068;
+	--pine-teal: #14453d;
+
 	--color-bg: #f5f3ef;
 	--color-surface: #ffffff;
-	--color-teal: #008080;
-	--color-teal-light: #e6f3f3;
-	--color-navy: #000080;
-	--color-navy-light: #e8e8f5;
+	--color-teal: #43c59e;
+	--color-teal-light: rgba(67, 197, 158, 0.12);
+	--color-navy: #14453d;
+	--color-navy-light: rgba(20, 69, 61, 0.08);
+	--color-accent: #48beff;
+	--color-accent-glow: #3dfaff;
 	--color-text: #1a1a1a;
 	--color-text-muted: #666666;
 	--color-border: #d4d0c8;
 	--color-border-strong: #a0a0a0;
-	--color-link: #005f5f;
-	--color-link-hover: #008080;
+	--color-link: #14453d;
+	--color-link-hover: #43c59e;
 	--color-code-bg: #1e1e1e;
 	--font-mono: 'IBM Plex Mono', ui-monospace, monospace;
 	--max-width: 720px;
@@ -63,6 +71,6 @@ img {
 }
 
 ::selection {
-	background: var(--color-teal);
-	color: white;
+	background: var(--deep-sky-blue);
+	color: var(--pine-teal);
 }
