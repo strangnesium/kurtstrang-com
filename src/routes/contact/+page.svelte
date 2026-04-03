@@ -48,7 +48,7 @@
 			</a>
 			<div class="contact-card contact-card-static">
 				<span class="contact-label">Phone</span>
-				<span class="contact-value">Unexpected calls terrify me, please email. I'm not joking.</span>
+				<span class="contact-value">Unexpected calls terrify me, please message. I'm not joking.</span>
 			</div>
 		</div>
 	</section>
