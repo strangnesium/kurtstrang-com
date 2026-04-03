@@ -18,7 +18,14 @@
 
 	<article>
 		<header class="post-header">
-			<div class="retro-title-bar">{data.meta.title}</div>
+			<div class="retro-title-bar">
+				<span class="tb-path">writings</span>
+				<div class="tb-controls">
+					<span class="tb-btn">_</span>
+					<span class="tb-btn">□</span>
+					<span class="tb-btn">✕</span>
+				</div>
+			</div>
 			<div class="post-header-body">
 				<h1>{data.meta.title}</h1>
 				<time datetime={data.meta.date}>
@@ -28,6 +35,10 @@
 						day: 'numeric'
 					})}
 				</time>
+			</div>
+			<div class="human-strip">
+				<span class="human-badge">// human</span>
+				<span class="human-text">No AI here — not in ideation, not in creation, not in editing. Just me and my writings.</span>
 			</div>
 		</header>
 
@@ -57,6 +68,40 @@
 		overflow: hidden;
 	}
 
+	.retro-title-bar {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background: #c0c0c0;
+		color: #000000;
+		border-bottom: 1px solid #808080;
+		box-shadow: inset 0 1px 0 #ffffff;
+	}
+
+	.tb-controls {
+		display: flex;
+		gap: 2px;
+	}
+
+	.tb-btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 16px;
+		height: 14px;
+		background: #c0c0c0;
+		border-top: 1px solid #ffffff;
+		border-left: 1px solid #ffffff;
+		border-bottom: 1px solid #555555;
+		border-right: 1px solid #555555;
+		font-size: 9px;
+		color: #000000;
+		cursor: default;
+		font-weight: bold;
+		line-height: 1;
+		font-family: var(--font-mono);
+	}
+
 	.post-header-body {
 		padding: var(--spacing-lg);
 	}
@@ -71,6 +116,32 @@
 	.post-header time {
 		font-size: 13px;
 		color: var(--color-text-muted);
+	}
+
+	.human-strip {
+		background: var(--pine-teal);
+		border-top: 1px solid rgba(255, 255, 255, 0.08);
+		padding: 10px var(--spacing-lg);
+		display: flex;
+		align-items: baseline;
+		gap: 12px;
+		flex-wrap: wrap;
+	}
+
+	.human-badge {
+		color: var(--color-teal);
+		font-size: 11px;
+		font-weight: 700;
+		letter-spacing: 0.5px;
+		white-space: nowrap;
+		flex-shrink: 0;
+	}
+
+	.human-text {
+		color: rgba(255, 255, 255, 0.65);
+		font-size: 11px;
+		letter-spacing: 0.2px;
+		line-height: 1.5;
 	}
 
 	.prose {

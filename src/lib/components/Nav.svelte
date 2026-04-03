@@ -39,8 +39,7 @@
 	}
 
 	.nav-current {
-		color: var(--color-text-muted);
-		opacity: 0.6;
+		color: var(--deep-sky-blue);
 	}
 
 	.nav-links {

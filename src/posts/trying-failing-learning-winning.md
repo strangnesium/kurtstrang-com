@@ -5,14 +5,6 @@ description: "From a Southland farm and a Playstation to conversion optimisation
 published: true
 ---
 
-No AI here, not in ideation, not in creation, and not in editing. Just me and my writings.
-
----
-
-Trying, failing, learning, winning.
-
----
-
 When I was a young boy, I lived on a sheep farm in Southland with my family for 3 years. It rains on average every 2nd day in that part of New Zealand. It once rained for nine straight days one winter, not all the time but at least most of that time it was raining. You get used to it, a pair of gumboots and a Swanndri would set you right. Not like it’s too cold, it’s just wet.
 
 We weren’t the richest of farmers, but we had enough to get by. Most of my clothes were hand-me-downs from my brother, and some choice outfits were passed on from my cousin too. I know it took my Mum a while to save for it, but it was a happy day when me and my brother got our very own Playstation. There were no numbers back then, but in today’s speak, a Playstation 1. We had just one game to start with - Ridge Racer Revolution, and a demo disc which had limited playtime of 3 different games.
