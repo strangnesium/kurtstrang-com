@@ -6,8 +6,14 @@
 </script>
 
 <svelte:head>
-	<title>My Writings — Kurt Strang</title>
-	<meta name="description" content="Writings by Kurt Strang on building, making, and the internet." />
+	<title>Writings — Kurt Strang</title>
+	<meta name="description" content="Writings by Kurt Strang on building, making, and the internet — no AI in ideation, writing, or editing." />
+	<meta property="og:title" content="Writings — Kurt Strang" />
+	<meta
+		property="og:description"
+		content="Writings by Kurt Strang on building, making, and the internet — no AI in ideation, writing, or editing."
+	/>
+	<meta property="og:type" content="website" />
 </svelte:head>
 
 <div class="page">

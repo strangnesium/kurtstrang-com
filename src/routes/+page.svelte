@@ -3,19 +3,54 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import { profile } from '$lib/data/profile';
 	import { projects } from '$lib/data/projects';
+	import { siteOrigin } from '$lib/site';
 
 	export let data;
 
 	$: featuredProject = projects.find((p) => p.featured);
 	$: otherProjects = projects.filter((p) => !p.featured);
+
+	const homeDescription = `Kurt Strang — builds and optimises websites. ${profile.status.role} at ${profile.status.company}, based in ${profile.status.location}. Projects, writings, and contact.`;
+
+	$: structuredData = JSON.stringify({
+		'@context': 'https://schema.org',
+		'@graph': [
+			{
+				'@type': 'WebSite',
+				'@id': `${siteOrigin}/#website`,
+				url: `${siteOrigin}/`,
+				name: 'Kurt Strang',
+				description: homeDescription,
+				publisher: { '@id': `${siteOrigin}/#person` }
+			},
+			{
+				'@type': 'Person',
+				'@id': `${siteOrigin}/#person`,
+				name: profile.name,
+				url: `${siteOrigin}/`,
+				jobTitle: profile.status.role,
+				worksFor: {
+					'@type': 'Organization',
+					name: profile.status.company,
+					url: profile.status.companyUrl
+				},
+				sameAs: [profile.links.linkedin],
+				nationality: { '@type': 'Country', name: profile.origin },
+				homeLocation: { '@type': 'Place', name: profile.status.location }
+			}
+		]
+	});
 </script>
 
 <svelte:head>
 	<title>Kurt Strang</title>
-	<meta name="description" content="Kurt Strang — I build web things." />
+	<meta name="description" content={homeDescription} />
 	<meta property="og:title" content="Kurt Strang" />
-	<meta property="og:description" content="I build web things." />
+	<meta property="og:description" content={homeDescription} />
 	<meta property="og:type" content="website" />
+	<meta name="twitter:title" content="Kurt Strang" />
+	<meta name="twitter:description" content={homeDescription} />
+	{@html `<script type="application/ld+json">${structuredData.replace(/</g, '\\u003c')}</script>`}
 </svelte:head>
 
 <div class="page">

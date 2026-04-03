@@ -123,8 +123,14 @@
 	<title>Random Walk Simulator — Kurt Strang</title>
 	<meta
 		name="description"
-		content="Interactive random walk simulator. Add steps and watch how noisy metrics wander by pure chance."
+		content="Random walk simulator by Kurt Strang — interactive demo: add steps and see how noisy metrics wander by pure chance."
 	/>
+	<meta property="og:title" content="Random Walk Simulator — Kurt Strang" />
+	<meta
+		property="og:description"
+		content="Random walk simulator by Kurt Strang — see how noisy metrics wander by pure chance."
+	/>
+	<meta property="og:type" content="website" />
 </svelte:head>
 
 <div class="page">

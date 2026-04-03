@@ -1,16 +1,41 @@
 <script lang="ts">
 	import Nav from '$lib/components/Nav.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import { page } from '$app/stores';
+	import { siteOrigin } from '$lib/site';
 
 	export let data;
+
+	$: articleUrl = `${siteOrigin}${$page.url.pathname}`;
+	$: ogTitle = `${data.meta.title} — Kurt Strang`;
+	$: dateIso = /^\d{4}-\d{2}-\d{2}$/.test(data.meta.date)
+		? `${data.meta.date}T12:00:00.000Z`
+		: data.meta.date;
+	$: blogPostingLd = JSON.stringify({
+		'@context': 'https://schema.org',
+		'@type': 'BlogPosting',
+		headline: data.meta.title,
+		description: data.meta.description,
+		datePublished: dateIso,
+		author: {
+			'@type': 'Person',
+			name: 'Kurt Strang',
+			url: `${siteOrigin}/`
+		},
+		mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl }
+	});
 </script>
 
 <svelte:head>
-	<title>{data.meta.title} — Kurt Strang</title>
+	<title>{ogTitle}</title>
 	<meta name="description" content={data.meta.description} />
-	<meta property="og:title" content={data.meta.title} />
+	<meta property="og:title" content={ogTitle} />
 	<meta property="og:description" content={data.meta.description} />
 	<meta property="og:type" content="article" />
+	<meta property="article:published_time" content={dateIso} />
+	<meta name="twitter:title" content={ogTitle} />
+	<meta name="twitter:description" content={data.meta.description} />
+	{@html `<script type="application/ld+json">${blogPostingLd.replace(/</g, '\\u003c')}</script>`}
 </svelte:head>
 
 <div class="page">

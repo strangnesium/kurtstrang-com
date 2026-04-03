@@ -6,7 +6,16 @@
 
 <svelte:head>
 	<title>Projects — Kurt Strang</title>
-	<meta name="description" content="Side projects and things I'm building." />
+	<meta
+		name="description"
+		content="Side projects by Kurt Strang — things I'm building and have shipped."
+	/>
+	<meta property="og:title" content="Projects — Kurt Strang" />
+	<meta
+		property="og:description"
+		content="Side projects by Kurt Strang — things I'm building and have shipped."
+	/>
+	<meta property="og:type" content="website" />
 </svelte:head>
 
 <div class="page">

@@ -6,10 +6,12 @@
 
 <svelte:head>
 	<title>Contact — Kurt Strang</title>
-	<meta name="description" content="Get in touch with Kurt Strang." />
-	<meta property="og:title" content="Contact Kurt Strang" />
-	<meta property="og:description" content="Get in touch with Kurt Strang." />
+	<meta name="description" content="Contact Kurt Strang — email, LinkedIn, and more." />
+	<meta property="og:title" content="Contact — Kurt Strang" />
+	<meta property="og:description" content="Contact Kurt Strang — email, LinkedIn, and more." />
 	<meta property="og:type" content="website" />
+	<meta name="twitter:title" content="Contact — Kurt Strang" />
+	<meta name="twitter:description" content="Contact Kurt Strang — email, LinkedIn, and more." />
 </svelte:head>
 
 <div class="page">
