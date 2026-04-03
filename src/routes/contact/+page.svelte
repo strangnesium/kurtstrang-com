@@ -46,6 +46,10 @@
 				<span class="contact-value">{profile.links.email}</span>
 				<span class="contact-arrow">↗</span>
 			</a>
+			<div class="contact-card contact-card-static">
+				<span class="contact-label">Phone</span>
+				<span class="contact-value">Unexpected calls terrify me, please email. I'm not joking.</span>
+			</div>
 		</div>
 	</section>
 
@@ -162,6 +166,15 @@
 
 	.contact-card:hover .contact-arrow {
 		opacity: 1;
+	}
+
+	.contact-card-static {
+		cursor: default;
+	}
+
+	.contact-card-static:hover {
+		border-color: var(--color-border);
+		box-shadow: none;
 	}
 
 	@media (max-width: 600px) {
