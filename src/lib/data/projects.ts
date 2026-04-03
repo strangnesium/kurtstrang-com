@@ -21,15 +21,15 @@ export const projects: Project[] = [
 	{
 		name: 'quiki.eu',
 		url: 'https://quiki.eu',
-		description: 'Like tinder but for random wikis',
-		longDescription: `Quiki makes it dead simple to spin up a wiki for your team, community, or project. No setup, no friction — just start writing. Designed for people who want documentation without the overhead of a full knowledge base tool.`,
+		description: 'Quick, mobile-friendly random Wikipedia browsing.',
+		longDescription: `Quick + Wiki = Quiki: a fast, fun way to dip into random Wikipedia articles when you have a few minutes, built for phones first. The content comes from Wikipedia — this is about discovery and idle curiosity, not hosting your own wiki.`,
 		period: 'October 2024'
 	},
 	{
 		name: '8mines.com',
 		url: 'https://8mines.com',
-		description: 'Anti-gambling gambling game',
-		longDescription: `8mines curates and creates focused learning content designed to be read in a single sitting. Each piece is edited down to exactly what you need — no filler, no fluff, just the core ideas in 8 minutes or less.`,
+		description: 'Free minefield-style game that explains gambling odds and house edge.',
+		longDescription: `8 Mines is a probability game on a 4×4 grid: each tile might be a mine, and you try to survive eight clicks across four stages. It is deliberately not gambling — no money, full transparency — and uses rising difficulty and visible odds to show why real games feel "almost winnable" and how the house wins over time. Retro 8-bit presentation.`,
 		period: 'January 2026'
 	},
 	{
