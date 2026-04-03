@@ -102,13 +102,15 @@
 				class="project-card featured"
 			>
 				<div class="project-card-inner">
-					<span class="project-name">
-						<span class="featured-tag">featured</span>
-						{featuredProject.name}
-						{#if featuredProject.period}<span class="pill project-period-inline">{featuredProject.period}</span>{/if}
-					</span>
-					<span class="project-desc">{featuredProject.description}</span>
-					<span class="project-link">visit →</span>
+					<div class="project-card-header">
+						<span class="project-name">
+							<span class="featured-tag">featured</span>
+							{featuredProject.name}
+							{#if featuredProject.period}<span class="pill project-period-inline">{featuredProject.period}</span>{/if}
+						</span>
+						<span class="project-link">visit →</span>
+					</div>
+					<p class="project-desc">{featuredProject.description}</p>
 				</div>
 			</a>
 		{/if}
@@ -120,12 +122,14 @@
 				class="project-card"
 			>
 				<div class="project-card-inner">
-					<span class="project-name">
-						{project.name}
-						{#if project.period}<span class="pill project-period-inline">{project.period}</span>{/if}
-					</span>
-					<span class="project-desc">{project.description}</span>
-					<span class="project-link">{project.internal ? 'open' : 'visit'} →</span>
+					<div class="project-card-header">
+						<span class="project-name">
+							{project.name}
+							{#if project.period}<span class="pill project-period-inline">{project.period}</span>{/if}
+						</span>
+						<span class="project-link">{project.internal ? 'open' : 'visit'} →</span>
+					</div>
+					<p class="project-desc">{project.description}</p>
 				</div>
 			</a>
 		{/each}
@@ -362,7 +366,14 @@
 	.project-card-inner {
 		padding: var(--spacing-md) var(--spacing-lg);
 		display: flex;
-		align-items: baseline;
+		flex-direction: column;
+		gap: var(--spacing-sm);
+	}
+
+	.project-card-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 		gap: var(--spacing-md);
 		flex-wrap: wrap;
 	}
@@ -374,6 +385,7 @@
 		align-items: center;
 		flex-wrap: wrap;
 		gap: var(--spacing-sm);
+		min-width: 0;
 	}
 
 	.project-period-inline {
@@ -392,10 +404,10 @@
 	}
 
 	.project-desc {
-		flex: 1;
+		margin: 0;
 		font-size: 14px;
+		line-height: 1.5;
 		color: var(--color-text-muted);
-		min-width: 0;
 	}
 
 	.project-link {
@@ -442,8 +454,6 @@
 		}
 
 		.project-card-inner {
-			flex-direction: column;
-			gap: var(--spacing-xs);
 			padding: var(--spacing-md);
 		}
 
