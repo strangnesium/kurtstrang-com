@@ -26,8 +26,15 @@
 							{#if project.featured}<span class="featured-tag">featured</span>{/if}
 							{project.name}
 						</h2>
-						{#if project.status}
-							<span class="project-status">{project.status}</span>
+						{#if project.period || project.status}
+							<div class="project-meta">
+								{#if project.period}
+									<span class="project-period">{project.period}</span>
+								{/if}
+								{#if project.status}
+									<span class="project-status">{project.status}</span>
+								{/if}
+							</div>
 						{/if}
 					</div>
 					<p class="project-tagline">{project.description}</p>
@@ -126,8 +133,28 @@
 		font-weight: 600;
 	}
 
+	.project-meta {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: var(--spacing-xs);
+		justify-content: flex-end;
+	}
+
+	.project-period {
+		display: inline-block;
+		padding: 3px 10px;
+		border-radius: 100px;
+		font-size: 11px;
+		font-weight: 600;
+		letter-spacing: 0.02em;
+		color: var(--color-text-muted);
+		background: var(--color-navy-light);
+		border: 1px solid var(--color-border);
+	}
+
 	.project-status {
-		font-size: 12px;
+		font-size: 11px;
 		text-transform: uppercase;
 		letter-spacing: 1px;
 		color: var(--color-teal);
@@ -163,6 +190,10 @@
 			flex-direction: column;
 			align-items: flex-start;
 			gap: var(--spacing-xs);
+		}
+
+		.project-meta {
+			justify-content: flex-start;
 		}
 	}
 </style>

@@ -105,6 +105,7 @@
 					<span class="project-name">
 						<span class="featured-tag">featured</span>
 						{featuredProject.name}
+						{#if featuredProject.period}<span class="pill project-period-inline">{featuredProject.period}</span>{/if}
 					</span>
 					<span class="project-desc">{featuredProject.description}</span>
 					<span class="project-link">visit →</span>
@@ -119,7 +120,10 @@
 				class="project-card"
 			>
 				<div class="project-card-inner">
-					<span class="project-name">{project.name}</span>
+					<span class="project-name">
+						{project.name}
+						{#if project.period}<span class="pill project-period-inline">{project.period}</span>{/if}
+					</span>
 					<span class="project-desc">{project.description}</span>
 					<span class="project-link">{project.internal ? 'open' : 'visit'} →</span>
 				</div>
@@ -366,10 +370,15 @@
 	.project-name {
 		font-weight: 700;
 		font-size: 15px;
-		white-space: nowrap;
 		display: flex;
 		align-items: center;
+		flex-wrap: wrap;
 		gap: var(--spacing-sm);
+	}
+
+	.project-period-inline {
+		font-weight: 600;
+		color: var(--color-text-muted);
 	}
 
 	.featured-tag {
